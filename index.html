@@ -3,20 +3,31 @@
 <head>
 <meta charset="utf-8">
 <title>Drawing Circles in Canvas</title>
-<link rel="stylesheet" href="css/untangle.css">
 </head>
 <body>
 <header>
 <h1>Drawing in Canvas</h1>
 </header>
-<canvas id="game" width="1024" height="600">
+<canvas id="game" width="1024" height="600" style="border:1px solid #000000;">
 This is an interactive game with circles and lines connecting
 them.
 </canvas>
-<script src="js/jquery-3.2.1.js"></script>
-<script src="js/untangle.data.js"></script>
-<script src="js/untangle.drawing.js"></script>
-<script src="js/untangle.input.js"></script>
-<script src="js/untangle.js"></script>
+<script type="text/javascript">
+var canvas = document.getElementById("game");
+var ctx = canvas.getContext("2d");
+for(i = 0; i < 10; i++){
+for(j = 0; j < 10; j++){
+// isi nilai titik dengan bilangan acak
+var x = Math.floor(Math.random() * canvas.width);
+var y = Math.floor(Math.random() * canvas.height);
+// jari-jari random dari 5 sampai 30
+var r = Math.floor( Math.random() * (30 - 5) + 5 );
+// gambar lingkaran
+ctx.beginPath();
+ctx.arc(x, y, r, 0, 2*Math.PI);
+ctx.stroke();
+}
+}
+</script>
 </body>
 </html>
